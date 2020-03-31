@@ -1,8 +1,9 @@
 package storage
 
 import (
+	"bytes"
+	"encoding/binary"
 	"os"
-	"strconv"
 	"sync"
 )
 
@@ -31,18 +32,25 @@ func getWithCreateIfNotExists(fileName string) *os.File {
 	return file
 }
 
-func SafeAdd(key string) {
+func SafeAdd() uint64 {
 	mux.Lock()
-	var file *os.File
-	var content []byte
-
 	defer mux.Unlock()
+
+	var content []byte
+	var num uint64
+	file, _ := os.OpenFile(numFileName, os.O_CREATE|os.O_RDWR, 0644)
 	defer file.Close()
-	file = getWithCreateIfNotExists(numFileName)
 	file.Read(content)
-	if con
-	num, _ := strconv.Atoi(string(content[:]))
+	if len(content) == 0 {
+		num = 0
+	} else {
+		num = binary.BigEndian.Uint64(content)
+	}
 	num++
+	buf := bytes.NewBuffer(content)
+	binary.Write(buf, binary.BigEndian, num)
+	file.Write(content)
+	return num
 }
 
 //type Storage struct {
