@@ -1,27 +1,39 @@
 https://www.golangprograms.com/data-structure-and-algorithms.html
 
+
 https://github.com/arnauddri/algorithms/tree/master/data-structures/stack
+
 
 https://studygolang.com/articles/21789
 
 https://studygolang.com/articles/17796?fr=sidebar
 
+
 https://blog.csdn.net/weixin_42117918/article/details/83268396#comments
+
 
 https://blog.csdn.net/weixin_42117918/article/details/90409744
 
+
 https://github.com/goquiz/goquiz.github.io
+
 
 https://github.com/lifei6671/interview-go/blob/master/question/q001.md
 
+
 https://github.com/CyC2018/CS-Notes
+
 
 https://hit-alibaba.github.io/interview/basic/algo/Linked-List.html
 
+
 https://github.com/qieguo2016/algorithm
+
 
 https://github.com/csunny/argo/
 
+
 https://blog.csdn.net/weixin_42654444/article/details/83513488
+
 
 https://www.cnblogs.com/f-ck-need-u/p/9832538.html
