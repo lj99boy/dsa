@@ -2,15 +2,15 @@ package binarysearch
 
 import (
 	"dsa/ds/alog"
-	"dsa/ds/alog/quicksort"
+	"dsa/ds/alog/sort"
 	"testing"
 )
 
 func TestBinarySearch(t *testing.T) {
-	data := quicksort.QuickSort(alog.GenerateSlice(9))
-	needle := data[3]
+	data := sort.QuickSort(alog.GenerateSlice(9))
+	needle := data[0]
 
-	if BinarySearch(needle, data) != 3 {
+	if BinarySearch(needle, data) != 0 {
 		t.Error("res wrong")
 	}
 

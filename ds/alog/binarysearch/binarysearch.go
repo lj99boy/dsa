@@ -1,3 +1,4 @@
+//二分查找
 package binarysearch
 
 func BinarySearch(needle int, haystack []int) int {
@@ -6,9 +7,9 @@ func BinarySearch(needle int, haystack []int) int {
 	for ; high >= low; {
 		mid := (low + high) / 2
 		if needle > haystack[mid] {
-			low = mid
+			low = mid + 1
 		} else if needle < haystack[mid] {
-			high = mid
+			high = mid - 1
 		} else if haystack[mid] == needle {
 			return mid
 		}

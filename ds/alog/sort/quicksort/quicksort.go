@@ -1,3 +1,5 @@
+//快速排序
+//取一个标志，小于标志的放一边，大于标志的放另一边，再对这两边递归
 package quicksort
 
 func QuickSort(arr []int) []int {
