@@ -36,7 +36,8 @@ func CountSort(arr []int) []int {
 	//输出结果
 	//var res []int
 	res := make([]int, len(arr))
-	for i := 0; i < len(arr); i++ {
+	//注意这里需要倒序，因为做了--操作后在遇到的相同的数确实是在之前的数的前面的，比如5,4,7,2,7  这里必须倒序才能保证第二次遇到7是在第一次遇到7的前面（--操作已经让第二次操作的遇到相同的数排在前面了）
+	for i := len(arr) - 1; i >= 0; i-- {
 		index := arr[i] - min
 		//res = append(res[:holder[index]], append([]int{arr[i]}, res[holder[index]:]...)...)
 		//这里的-1是因为比如十个元素的第十位其实是在数组里第九的位置（数组从0开始）

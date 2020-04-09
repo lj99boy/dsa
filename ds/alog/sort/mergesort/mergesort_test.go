@@ -7,7 +7,7 @@ import (
 )
 
 func TestMergeSortRecur(t *testing.T) {
-	arr := alog.GenerateSlice(7)
+	arr := alog.GenerateSlice(7, false)
 	xx := MergeSortRecur(arr)[:]
 	fmt.Printf("%v", xx)
 }

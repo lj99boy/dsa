@@ -7,7 +7,7 @@ import (
 )
 
 func TestCountSort(t *testing.T) {
-	arr := alog.GenerateSlice(7)
+	arr := alog.GenerateSlice(7, false)
 
-	fmt.Printf("%v",CountSort(arr)[:])
+	fmt.Printf("%v", CountSort(arr)[:])
 }
