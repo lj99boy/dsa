@@ -36,3 +36,10 @@ func TestMidOrderTraversalIter(t *testing.T) {
 	MidOrderTraversalIter(tree)
 }
 
+func TestPreOrderTraversalIter(t *testing.T) {
+	PreOrderTraversalIter(tree)
+}
+
+func TestPreOrderTraversalIter2(t *testing.T) {
+	PreOrderTraversalIter2(tree)
+}

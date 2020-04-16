@@ -31,6 +31,7 @@ func MidOrderTraversal(tree *ChainBinaryTree) {
 	}
 }
 
+//先中后遍历路径都是一样的 自己 左 右， 先序是第一次遇见自己就处理，中序是第二次，后续是第三次
 func MidOrderTraversalIter(tree *ChainBinaryTree) {
 	if tree == nil {
 		return
@@ -45,6 +46,41 @@ func MidOrderTraversalIter(tree *ChainBinaryTree) {
 
 		point = stack.Pop().(*ChainBinaryTree)
 		fmt.Printf("%v", point.Val)
+		point = point.Right
+	}
+}
+
+func PreOrderTraversalIter(tree *ChainBinaryTree) {
+	if tree == nil {
+		return
+	}
+	stack := stack2.New()
+	stack.Push(tree)
+	for ; !stack.IsEmpty(); {
+		point := stack.Pop().(*ChainBinaryTree)
+		if point == nil {
+			continue
+		}
+		fmt.Printf("%v", point.Val)
+		stack.Push(point.Right)
+		stack.Push(point.Left)
+	}
+}
+
+func PreOrderTraversalIter2(tree *ChainBinaryTree) {
+	if tree == nil {
+		return
+	}
+	stack := stack2.New()
+	point := tree
+	for ; !stack.IsEmpty() || point != nil; {
+		for ; point != nil; {
+			fmt.Printf("%v", point.Val)
+			stack.Push(point)
+			point = point.Left
+		}
+
+		point = stack.Pop().(*ChainBinaryTree)
 		point = point.Right
 	}
 }
