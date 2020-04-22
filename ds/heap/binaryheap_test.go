@@ -9,12 +9,21 @@ var heap = &BinaryHeap{
 	holder: []int{1, 3, 5, 8, 9, 20, 31, 44},
 }
 
-func TestBinaryHeap_Push(t *testing.T) {
-	heap.Push(2)
+var ruinedHeap = &BinaryHeap{
+	holder: []int{5, 3, 3, 2, 7, 20, 11, 9},
+}
+
+func TestBinaryHeap_AdjustUp(t *testing.T) {
+	heap.AdjustUp(2)
 	fmt.Printf("%v", heap.holder[:])
 }
 
-func TestBinaryHeap_Pop(t *testing.T) {
-	res := heap.Pop()
-	fmt.Printf("pop:%v -- holder:%v", res, heap.holder[:])
+func TestBinaryHeap_AdjustDown(t *testing.T) {
+	heap.AdjustDown(0)
+	fmt.Printf("holder:%v", heap.holder[:])
+}
+
+func TestBinaryHeap_Build(t *testing.T) {
+	ruinedHeap.Build()
+	fmt.Printf("holder:%v", heap.holder[:])
 }
