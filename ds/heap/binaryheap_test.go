@@ -7,7 +7,8 @@ import (
 
 var heap = &BinaryHeap{
 	//Holder: []int{1, 3, 5, 8, 9, 20, 31, 44},
-	Holder : []int{2, 3, 7, 9, 18, 25},
+	//Holder : []int{2, 3, 7, 9, 18, 25},
+	Holder : []int{7, 9, 18, 25},
 
 }
 
@@ -27,7 +28,7 @@ func TestBinaryHeap_Pop(t *testing.T) {
 }
 
 func TestBinaryHeap_Push(t *testing.T) {
-	heap.Push(7)
+	heap.Push(5)
 	fmt.Printf("Holder:%v", heap.Holder[:])
 }
 

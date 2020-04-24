@@ -17,7 +17,7 @@ type ArrayBinaryTree struct {
 
 func PreOrderTraversal(tree *ChainBinaryTree) {
 	if tree != nil {
-		fmt.Printf("%#v", tree.Val)
+		fmt.Printf("%#v ", tree.Val)
 		PreOrderTraversal(tree.Left)
 		PreOrderTraversal(tree.Right)
 	}

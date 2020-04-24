@@ -55,6 +55,7 @@ func (bh *BinaryHeap) AdjustUp(index int) {
 			return
 		}
 	}
+	bh.Holder[0] = swapTmp
 }
 
 func (bh *BinaryHeap) AdjustDown(index int) {
@@ -85,6 +86,10 @@ func (bh *BinaryHeap) AdjustDown(index int) {
 
 func (bh *BinaryHeap) Pop() (top int) {
 	top = bh.Holder[0]
+	if len(bh.Holder) == 1 {
+		bh.Holder = bh.Holder[:len(bh.Holder)-1]
+		return
+	}
 	bh.Holder[0] = bh.Holder[len(bh.Holder)-1]
 	bh.Holder = bh.Holder[:len(bh.Holder)-1]
 	bh.AdjustDown(0)
