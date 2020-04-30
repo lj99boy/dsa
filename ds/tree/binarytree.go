@@ -84,3 +84,53 @@ func PreOrderTraversalIter2(tree *ChainBinaryTree) {
 		point = point.Right
 	}
 }
+
+func FindMaxDepthByStack(tree *ChainBinaryTree) int {
+	if tree == nil {
+		return 0
+	}
+
+	treeDepth := make(map[*ChainBinaryTree]int, 0)
+	var stack []*ChainBinaryTree
+	stack = append(stack, tree)
+	maxDepth := 1
+	tmpDepth := 1
+
+	for ; len(stack) > 0; {
+		node := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if val, ok := treeDepth[node]; ok {
+			tmpDepth = val
+		}
+		if tmpDepth > maxDepth {
+			maxDepth = tmpDepth
+		}
+		if node.Left != nil {
+			treeDepth[node.Left] = tmpDepth + 1
+			stack = append(stack, node.Left)
+		}
+		if node.Right != nil {
+			treeDepth[node.Right] = tmpDepth + 1
+			stack = append(stack, node.Right)
+		}
+	}
+	return maxDepth
+}
+
+func FindMaxDepth(tree *ChainBinaryTree) int {
+	if tree == nil {
+		return 0
+	}
+	if tree.Left == nil && tree.Right == nil {
+		return 1
+	}
+	return compareMax(FindMaxDepth(tree.Right), FindMaxDepth(tree.Left)) + 1
+}
+
+func compareMax(a int, b int) int {
+	if a > b {
+		return a
+	} else {
+		return b
+	}
+}

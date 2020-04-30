@@ -44,7 +44,7 @@ import "fmt"
 func printStr(s string) {
 	fmt.Println(s)
 }
-func main() {
+func escape() {
 	var s string
 	s = "Escape"
 	printStr(s)

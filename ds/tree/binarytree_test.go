@@ -20,6 +20,12 @@ var tree = &ChainBinaryTree{
 		},
 		Right: &ChainBinaryTree{
 			Val: 7,
+			Left: &ChainBinaryTree{
+				Val: 8,
+				Left: &ChainBinaryTree{
+					Val: 9,
+				},
+			},
 		},
 	},
 }
@@ -42,4 +48,13 @@ func TestPreOrderTraversalIter(t *testing.T) {
 
 func TestPreOrderTraversalIter2(t *testing.T) {
 	PreOrderTraversalIter2(tree)
+}
+
+func TestFindMaxDepth(t *testing.T) {
+	println(FindMaxDepth(tree))
+}
+
+
+func TestFindMaxDepthByStack(t *testing.T) {
+	println(FindMaxDepthByStack(tree))
 }
