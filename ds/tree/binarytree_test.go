@@ -54,7 +54,6 @@ func TestFindMaxDepth(t *testing.T) {
 	println(FindMaxDepth(tree))
 }
 
-
 func TestFindMaxDepthByStack(t *testing.T) {
 	println(FindMaxDepthByStack(tree))
 }
