@@ -3,6 +3,23 @@
 //https://blog.csdn.net/bjweimengshu/article/details/102384930
 package mergesort
 
+func MergeSortReview(arr []int) []int {
+	if len(arr) < 1 {
+		return nil
+	}
+
+	mid := len(arr) / 2
+	if mid < 1 {
+		return arr
+	}
+
+	//两个排序子集
+	left := MergeSortRecur(arr[0:mid])
+	right := MergeSortRecur(arr[mid:])
+
+
+}
+
 func MergeSortRecur(arr []int) []int {
 	if len(arr) < 1 {
 		return nil

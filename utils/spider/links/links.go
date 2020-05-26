@@ -3,6 +3,7 @@ package links
 import (
 	"fmt"
 	"golang.org/x/net/html"
+	"log"
 	"net/http"
 )
 
@@ -58,8 +59,21 @@ func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
 	}
 }
 
+var tokens = make(chan int, 20)
+
 func ReadWithError(url string) []string {
-	res,err := Extract(url)
+	//针对每个节点的处理代码
+	println(url)
+
+	//限流，防止并发数太高引起网络请求错误
+	tokens <- 1
+	res, err := Extract(url)
+	<-tokens
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	return res
 }
 
 func BreadthFirst(fn func(url string) []string, workList []string) {
@@ -70,11 +84,27 @@ func BreadthFirst(fn func(url string) []string, workList []string) {
 		workList = nil
 		for _, item := range items {
 			if !seen[item] {
-				//针对每个节点的处理代码
-				println(item)
-
 				seen[item] = true
 				workList = append(workList, fn(item)...)
+			}
+		}
+	}
+}
+
+func ConcurrentRead(fn func(url string) []string, url string) {
+	workList := make(chan []string)
+
+	go func() {
+		workList <- []string{url}
+	}()
+
+	seen := make(map[string]bool, 0)
+	for list := range workList {
+		for _, link := range list {
+			if !seen[link] {
+				go func(link string) {
+					workList <- fn(link)
+				}(link)
 			}
 		}
 	}

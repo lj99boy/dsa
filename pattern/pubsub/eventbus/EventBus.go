@@ -26,11 +26,11 @@ func (eb *EventBus) Publish(topic string, data interface{}) {
 	defer eb.rm.RUnlock()
 
 	if chans, found := eb.subscribers[topic]; found {
-		//channels := append(DataChannelSlice{}, chans...)
+		channels := append(DataChannelSlice{}, chans...)
 		go func(data DataEvent, dataChannelSlices DataChannelSlice) {
 			for _, ch := range dataChannelSlices {
 				ch <- data
 			}
-		}(DataEvent{Data: data, Topic: topic}, chans)
+		}(DataEvent{Data: data, Topic: topic}, channels)
 	}
 }
