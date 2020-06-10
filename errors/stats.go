@@ -11,4 +11,6 @@ func main() {
 		println(miao,err)
 	}
 
+	//os.IsExist()
+
 }

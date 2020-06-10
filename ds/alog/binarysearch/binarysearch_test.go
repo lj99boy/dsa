@@ -2,12 +2,12 @@ package binarysearch
 
 import (
 	"dsa/ds/alog"
-	"dsa/ds/alog/sort"
+	"dsa/ds/alog/sort/quicksort"
 	"testing"
 )
 
 func TestBinarySearch(t *testing.T) {
-	data := sort.QuickSort(alog.GenerateSlice(9))
+	data := quicksort.QuickSort(alog.GenerateSlice(9, false))
 	needle := data[0]
 
 	if BinarySearch(needle, data) != 0 {

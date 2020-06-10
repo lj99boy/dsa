@@ -7,7 +7,7 @@ import (
 )
 
 func TestSelectionSort(t *testing.T) {
-	arr := alog.GenerateSlice(7)
+	arr := alog.GenerateSlice(7, false)
 	fmt.Printf("%v\n", arr[:])
 	fmt.Printf("%v\n", SelectionSort(arr)[:])
 }
