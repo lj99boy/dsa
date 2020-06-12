@@ -1,4 +1,4 @@
-//插入排序
+//插入排序 就是将一个无序的元素插入一段有序的队列，arr[0]本身已经是有序的
 package insertsort
 
 func InsertSort(arr []int) []int {

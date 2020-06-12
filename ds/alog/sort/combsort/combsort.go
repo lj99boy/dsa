@@ -7,6 +7,7 @@ func CombSort(arr []int) []int {
 	ratio := 1.3
 
 	for step := int(float64(len(arr)) / ratio); step >= 1; step = int(float64(step) / ratio) {
+		//这里要小于step的原因是 step这个位置的元素其实已经被第0位用来比较过了，因为刚好是一个衰减率位置上面的元素
 		for i := 0; i < step; i++ {
 			for j := i; j <= len(arr)-1; j += step {
 				if j+step > len(arr)-1 {
