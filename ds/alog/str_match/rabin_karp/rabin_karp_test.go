@@ -7,4 +7,5 @@ func TestIsContain(t *testing.T) {
 	needle := "omi"
 
 	println(IsContain(haystack, needle))
+
 }

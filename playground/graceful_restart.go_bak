@@ -22,11 +22,11 @@ func GR() {
 		l, err = net.FileListener(f)
 	} else {
 		log.Print("main: listening on a new file descriptor.")
-		l,err = net.Listen("tcp",server.Addr)
+		l, err = net.Listen("tcp", server.Addr)
 	}
-	if gracefulChild{
+	if gracefulChild {
 		parent := syscall.Getppid()
-		log.Printf("main:kill parent pid %v",parent)
+		log.Printf("main:kill parent pid %v", parent)
 		//syscall
 	}
 
