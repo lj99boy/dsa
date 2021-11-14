@@ -9,7 +9,9 @@ func main() {
 
 	var miao x = x{x1: nil}
 
-	fmt.Printf("%#v",miao)
+	fmt.Printf("%#v\n",miao)
 
+	mm := []int{7}
+	fmt.Println(len(mm[1:]))
 
 }
